@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz Game</title>
+</head>
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<body>
+    <h1>Quiz Game</h1>
+    
+    <h3>{{ question }}</h3>
+
+    <form method="POST">
+        {% for option in options %}
+            <input type="radio" name="choice" value="{{ option }}" required> {{ option }} <br><br>
+        {% endfor %}
+        <button type="submit">Submit Answer</button><br>
+    </form>
+
+    {% if result %}
+        <h2>Your Answer: {{ user_choice }}</h2>
+        <h2>Result: {{ result }}</h2>
+    {% endif %}
+
+    <br>
+    <a href="/">Go Home</a>
+</body>
+</html>
